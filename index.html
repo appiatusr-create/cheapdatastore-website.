@@ -595,9 +595,9 @@ document.getElementById('review').onclick=()=>{
         const orderId=result.orderId||'';
         latestOrderId=orderId;
         latestPaymentReference='';
-        document.getElementById('payWithPaystack').style.display=(status==='PAID'?'none':'block');
         const price=Number(result.bundlePrice!=null?result.bundlePrice:chosen.p);
         const status=String(result.paymentStatus||'UNPAID');
+        document.getElementById('payWithPaystack').style.display=(status==='PAID'?'none':'block');
         msg.textContent='Order created successfully. Your Order ID is '+orderId+'. Status: '+(status==='PAID'?'Payment confirmed':'Awaiting payment')+'.';
         document.getElementById('receiptDetails').innerHTML=
           '<div><strong>Order ID:</strong> '+escapeReceipt(orderId)+'</div>'+
